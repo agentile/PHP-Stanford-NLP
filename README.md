@@ -9,8 +9,11 @@ Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
 ### Example Usage ###
 
-```
-$pos = new \StanfordNLP\POSTagger('/path/to/stanford-postagger-2013-11-12/models/english-left3words-distsim.tagger', '/path/to/stanford-postagger-2013-11-12/stanford-postagger.jar');
+```php
+$pos = new \StanfordNLP\POSTagger(
+  '/path/to/stanford-postagger-2013-11-12/models/english-left3words-distsim.tagger',
+  '/path/to/stanford-postagger-2013-11-12/stanford-postagger.jar'
+);
 $result = $pos->tag(explode(' ', "Hello World!")); 
 var_dump($result);
 

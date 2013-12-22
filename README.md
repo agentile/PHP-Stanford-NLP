@@ -75,7 +75,7 @@ Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 ### Example Usage ###
 
 ```php
-$pos = new \StanfordNLP\POSTagger(
+$pos = new \StanfordNLP\NERTagger(
   '/path/to/stanford-ner-2013-11-12/classifiers/english.all.3class.distsim.crf.ser.gz',
   '/path/to/stanford-ner-2013-11-12/stanford-ner.jar'
 );

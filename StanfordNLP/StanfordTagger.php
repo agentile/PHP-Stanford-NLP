@@ -115,7 +115,6 @@ class StanfordTagger extends Base {
         );
         
         $options = implode(' ', $this->getJavaOptions());
-        $separator = $this->getSeparator();
         
         switch ($this->getTagType()) {
             case 'pos':

@@ -2,8 +2,9 @@
 
 PHP interface to Stanford NLP Tools (POS Tagger, NER, Parser)
 
-This library was tested against individual jar files for each package version 3.3.0. 
-It was built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) jar
+This library was tested against individual jar files for each package (version 3.3.0). 
+
+It was NOT built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml).
 
 ## POS Tagger ##
 

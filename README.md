@@ -1,10 +1,13 @@
 # PHP-Stanford-NLP #
 
-PHP interface to Stanford NLP Tools (POS Tagger, NER, etc)
+PHP interface to Stanford NLP Tools (POS Tagger, NER, Parser)
+
+This library was tested against individual jar files for each package version 3.3.0. 
+It was built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) jar
 
 ## POS Tagger ##
 
-http://nlp.stanford.edu/downloads/tagger.shtml
+[Link](http://nlp.stanford.edu/downloads/tagger.shtml)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -68,7 +71,7 @@ array(6) {
 
 ## NER Tagger ##
 
-http://nlp.stanford.edu/software/CRF-NER.shtml
+[Link](http://nlp.stanford.edu/software/CRF-NER.shtml)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -175,5 +178,263 @@ array(13) {
     string(1) "O"
   }
 }
+
+```
+
+## Parser ##
+
+[Link](http://nlp.stanford.edu/software/lex-parser.shtml)
+
+### Example Usage ###
+
+```php
+$parser = new \StanfordNLP\Parser(
+  '/path/to/stanford-parser-full-2013-11-12/stanford-parser.jar'
+);
+$result = $parser->parseSentence("What does the fox say?"); 
+var_dump($result);
+
+array(3) {
+  ["wordsAndTags"]=>
+  array(6) {
+    [0]=>
+    array(2) {
+      [0]=>
+      string(4) "What"
+      [1]=>
+      string(2) "WP"
+    }
+    [1]=>
+    array(2) {
+      [0]=>
+      string(4) "does"
+      [1]=>
+      string(3) "VBZ"
+    }
+    [2]=>
+    array(2) {
+      [0]=>
+      string(3) "the"
+      [1]=>
+      string(2) "DT"
+    }
+    [3]=>
+    array(2) {
+      [0]=>
+      string(3) "fox"
+      [1]=>
+      string(2) "NN"
+    }
+    [4]=>
+    array(2) {
+      [0]=>
+      string(3) "say"
+      [1]=>
+      string(2) "VB"
+    }
+    [5]=>
+    array(2) {
+      [0]=>
+      string(1) "?"
+      [1]=>
+      string(1) "."
+    }
+  }
+  ["penn"]=>
+  array(2) {
+    ["parent"]=>
+    string(4) "ROOT"
+    ["children"]=>
+    array(1) {
+      [0]=>
+      array(2) {
+        ["parent"]=>
+        string(5) "SBARQ"
+        ["children"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["parent"]=>
+            string(4) "WHNP"
+            ["children"]=>
+            array(1) {
+              [0]=>
+              array(2) {
+                ["parent"]=>
+                string(7) "WP What"
+                ["children"]=>
+                array(0) {
+                }
+              }
+            }
+          }
+          [1]=>
+          array(2) {
+            ["parent"]=>
+            string(2) "SQ"
+            ["children"]=>
+            array(3) {
+              [0]=>
+              array(2) {
+                ["parent"]=>
+                string(8) "VBZ does"
+                ["children"]=>
+                array(0) {
+                }
+              }
+              [1]=>
+              array(2) {
+                ["parent"]=>
+                string(2) "NP"
+                ["children"]=>
+                array(2) {
+                  [0]=>
+                  array(2) {
+                    ["parent"]=>
+                    string(6) "DT the"
+                    ["children"]=>
+                    array(0) {
+                    }
+                  }
+                  [1]=>
+                  array(2) {
+                    ["parent"]=>
+                    string(6) "NN fox"
+                    ["children"]=>
+                    array(0) {
+                    }
+                  }
+                }
+              }
+              [2]=>
+              array(2) {
+                ["parent"]=>
+                string(2) "VP"
+                ["children"]=>
+                array(1) {
+                  [0]=>
+                  array(2) {
+                    ["parent"]=>
+                    string(6) "VB say"
+                    ["children"]=>
+                    array(0) {
+                    }
+                  }
+                }
+              }
+            }
+          }
+          [2]=>
+          array(2) {
+            ["parent"]=>
+            string(3) ". ?"
+            ["children"]=>
+            array(0) {
+            }
+          }
+        }
+      }
+    }
+  }
+  ["typedDependencies"]=>
+  array(5) {
+    [0]=>
+    array(3) {
+      ["type"]=>
+      string(4) "dobj"
+      [0]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "say"
+        ["index"]=>
+        int(5)
+      }
+      [1]=>
+      array(2) {
+        ["feature"]=>
+        string(4) "What"
+        ["index"]=>
+        int(1)
+      }
+    }
+    [1]=>
+    array(3) {
+      ["type"]=>
+      string(3) "aux"
+      [0]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "say"
+        ["index"]=>
+        int(5)
+      }
+      [1]=>
+      array(2) {
+        ["feature"]=>
+        string(4) "does"
+        ["index"]=>
+        int(2)
+      }
+    }
+    [2]=>
+    array(3) {
+      ["type"]=>
+      string(3) "det"
+      [0]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "fox"
+        ["index"]=>
+        int(4)
+      }
+      [1]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "the"
+        ["index"]=>
+        int(3)
+      }
+    }
+    [3]=>
+    array(3) {
+      ["type"]=>
+      string(5) "nsubj"
+      [0]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "say"
+        ["index"]=>
+        int(5)
+      }
+      [1]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "fox"
+        ["index"]=>
+        int(4)
+      }
+    }
+    [4]=>
+    array(3) {
+      ["type"]=>
+      string(4) "root"
+      [0]=>
+      array(2) {
+        ["feature"]=>
+        string(4) "ROOT"
+        ["index"]=>
+        int(0)
+      }
+      [1]=>
+      array(2) {
+        ["feature"]=>
+        string(3) "say"
+        ["index"]=>
+        int(5)
+      }
+    }
+  }
+}
+
 
 ```

@@ -6,6 +6,12 @@ This library was tested against individual jar files for each package (version 3
 
 It was NOT built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml).
 
+### Installation
+
+This library requires PHP 5.3 or later.
+
+Clone this repository, then require or include its _autoload.php_ file.
+
 ## POS Tagger ##
 
 [http://nlp.stanford.edu/downloads/tagger.shtml](http://nlp.stanford.edu/downloads/tagger.shtml)

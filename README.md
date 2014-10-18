@@ -10,7 +10,9 @@ It was NOT built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/sof
 
 This library requires PHP 5.3 or later.
 
-Clone this repository, then require or include its _autoload.php_ file.
+It is available via Composer as [agentile/php-stanford-nlp](https://packagist.org/packages/agentile/php-stanford-nlp).
+
+You may also clone this repository, then require or include its _autoload.php_ file.
 
 ## POS Tagger ##
 

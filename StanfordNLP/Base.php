@@ -1,9 +1,9 @@
 <?php
 /**
  * This file is part of the StanfordNLP for PHP.
- * 
+ *
  * Base class, providing core functionality for several classes.
- * 
+ *
  * @package StanfordNLP
  * @link https://github.com/agentile/PHP-Stanford-NLP
  * @version 0.1.0
@@ -19,35 +19,60 @@ namespace StanfordNLP;
 *
 */
 class Base {
-    
+
     /**
      * Java path
-     * 
-     * relative/absolute path to java 
+     *
+     * relative/absolute path to java
      * e.g. /usr/bin/java
      */
     protected $java_path = 'java'; // assume relative path to start
-    
+
     /**
      * Stanford Jar file
      */
     protected $jar;
-    
+
+    /**
+     * Stanford Models Jar file
+     */
+    protected $models_jar;
+
     /**
      * Java options to use with our jar instance
      */
     protected $java_options;
-    
+
     /**
      * Output from NLP Tool
      */
     protected $output = null;
-    
+
     /**
      * Errors from NLP Tool
      */
     protected $errors = null;
-    
+
+    /**
+     * PHP Operating System
+     */
+    protected $php_os = 'linux';
+
+    /**
+     * Constructor!
+     *   - Set PHP Operating System.
+     *
+     * @return null
+     */
+    public function __construct()
+    {
+        if (defined('PHP_OS')) {
+            if (strtolower(substr(PHP_OS, 0, 3)) == 'win') {
+                $this->php_os = 'windows';
+            }
+        }
+    }
+
     /**
      * Java path setter
      *
@@ -59,7 +84,7 @@ class Base {
     {
         $this->java_path = $java_path;
     }
-    
+
     /**
      * Java path getter
      *
@@ -69,7 +94,7 @@ class Base {
     {
         return $this->java_path;
     }
-    
+
     /**
      * Jar setter
      *
@@ -85,7 +110,7 @@ class Base {
             throw new Exception("Jar file path does not exist.");
         }
     }
-    
+
     /**
      * Jar getter
      *
@@ -95,7 +120,33 @@ class Base {
     {
         return $this->jar;
     }
-    
+
+    /**
+     * Models Jar setter
+     *
+     * @param $jar string path to jar file
+     *
+     * @return null
+     */
+    public function setModelsJar($jar)
+    {
+        if (file_exists($jar)) {
+            $this->models_jar = $jar;
+        } else {
+            throw new Exception("Models Jar file path does not exist.");
+        }
+    }
+
+    /**
+     * Models Jar getter
+     *
+     * @return mixed
+     */
+    public function getModelsJar()
+    {
+        return $this->models_jar;
+    }
+
     /**
      * Java options setter
      *
@@ -107,7 +158,7 @@ class Base {
     {
         $this->java_options = (array) $options;
     }
-    
+
     /**
      * Java options getter
      *
@@ -117,7 +168,7 @@ class Base {
     {
         return $this->java_options;
     }
-    
+
     /**
      * Output setter
      *
@@ -129,7 +180,7 @@ class Base {
     {
         $this->output = $output;
     }
-    
+
     /**
      * Output getter
      *
@@ -139,11 +190,11 @@ class Base {
     {
         return $this->output;
     }
-    
+
     /**
      * Errors setter
      *
-     * @param $errors 
+     * @param $errors
      *
      * @return null
      */
@@ -151,7 +202,7 @@ class Base {
     {
         $this->errors = $errors;
     }
-    
+
     /**
      * Errors getter
      *

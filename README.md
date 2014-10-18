@@ -2,13 +2,13 @@
 
 PHP interface to Stanford NLP Tools (POS Tagger, NER, Parser)
 
-This library was tested against individual jar files for each package (version 3.3.0). 
+This library was tested against individual jar files for each package (version 3.4.1).
 
 It was NOT built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml).
 
 ## POS Tagger ##
 
-[Link](http://nlp.stanford.edu/downloads/tagger.shtml)
+[http://nlp.stanford.edu/downloads/tagger.shtml](http://nlp.stanford.edu/downloads/tagger.shtml)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -16,10 +16,10 @@ Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
 ```php
 $pos = new \StanfordNLP\POSTagger(
-  '/path/to/stanford-postagger-2013-11-12/models/english-left3words-distsim.tagger',
-  '/path/to/stanford-postagger-2013-11-12/stanford-postagger.jar'
+  '/path/to/stanford-postagger-2014-08-27/models/english-left3words-distsim.tagger',
+  '/path/to/stanford-postagger-2014-08-27/stanford-postagger.jar'
 );
-$result = $pos->tag(explode(' ', "What does the fox say?")); 
+$result = $pos->tag(explode(' ', "What does the fox say?"));
 var_dump($result);
 
 array(6) {
@@ -72,7 +72,7 @@ array(6) {
 
 ## NER Tagger ##
 
-[Link](http://nlp.stanford.edu/software/CRF-NER.shtml)
+[http://nlp.stanford.edu/software/CRF-NER.shtml](http://nlp.stanford.edu/software/CRF-NER.shtml)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -83,7 +83,7 @@ $pos = new \StanfordNLP\NERTagger(
   '/path/to/stanford-ner-2013-11-12/classifiers/english.all.3class.distsim.crf.ser.gz',
   '/path/to/stanford-ner-2013-11-12/stanford-ner.jar'
 );
-$result = $pos->tag(explode(' ', "The Federal Reserve Bank of New York led by Timothy R. Geithner.")); 
+$result = $pos->tag(explode(' ', "The Federal Reserve Bank of New York led by Timothy R. Geithner."));
 var_dump($result);
 
 array(13) {
@@ -184,15 +184,16 @@ array(13) {
 
 ## Parser ##
 
-[Link](http://nlp.stanford.edu/software/lex-parser.shtml)
+[http://nlp.stanford.edu/software/lex-parser.shtml](http://nlp.stanford.edu/software/lex-parser.shtml)
 
 ### Example Usage ###
 
 ```php
 $parser = new \StanfordNLP\Parser(
-  '/path/to/stanford-parser-full-2013-11-12/stanford-parser.jar'
+  '/path/to/stanford-parser-full-2014-08-27/stanford-parser.jar',
+  '/path/to/stanford-parser-full-2014-08-27/stanford-parser-3.4.1-models.jar'
 );
-$result = $parser->parseSentence("What does the fox say?"); 
+$result = $parser->parseSentence("What does the fox say?");
 var_dump($result);
 
 array(3) {

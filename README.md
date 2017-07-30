@@ -2,7 +2,7 @@
 
 PHP interface to Stanford NLP Tools (POS Tagger, NER, Parser)
 
-This library was tested against individual jar files for each package (version 3.4.1).
+This library was tested against individual jar files for each package version 3.8.0 (english).
 
 It was NOT built for use with the [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml).
 
@@ -16,7 +16,7 @@ You may also clone this repository, then require or include its _autoload.php_ f
 
 ## POS Tagger ##
 
-[http://nlp.stanford.edu/downloads/tagger.shtml](http://nlp.stanford.edu/downloads/tagger.shtml)
+[https://nlp.stanford.edu/software/tagger.html#Download](https://nlp.stanford.edu/software/tagger.html#Download)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -24,8 +24,8 @@ Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
 ```php
 $pos = new \StanfordNLP\POSTagger(
-  '/path/to/stanford-postagger-2014-08-27/models/english-left3words-distsim.tagger',
-  '/path/to/stanford-postagger-2014-08-27/stanford-postagger.jar'
+  '/path/to/stanford-postagger-2017-06-09/models/english-left3words-distsim.tagger',
+  '/path/to/stanford-postagger-2017-06-09/stanford-postagger-3.8.0.jar'
 );
 $result = $pos->tag(explode(' ', "What does the fox say?"));
 var_dump($result);
@@ -80,7 +80,7 @@ array(6) {
 
 ## NER Tagger ##
 
-[http://nlp.stanford.edu/software/CRF-NER.shtml](http://nlp.stanford.edu/software/CRF-NER.shtml)
+[https://nlp.stanford.edu/software/CRF-NER.shtml#Download](https://nlp.stanford.edu/software/CRF-NER.shtml#Download)
 
 Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
@@ -88,8 +88,8 @@ Mimicks http://nltk.org/_modules/nltk/tag/stanford.html#StanfordTagger
 
 ```php
 $pos = new \StanfordNLP\NERTagger(
-  '/path/to/stanford-ner-2013-11-12/classifiers/english.all.3class.distsim.crf.ser.gz',
-  '/path/to/stanford-ner-2013-11-12/stanford-ner.jar'
+  '/path/to/stanford-ner-2017-06-09/classifiers/english.all.3class.distsim.crf.ser.gz',
+  '/path/to/stanford-ner-2017-06-09/stanford-ner-3.8.0.jar'
 );
 $result = $pos->tag(explode(' ', "The Federal Reserve Bank of New York led by Timothy R. Geithner."));
 var_dump($result);
@@ -192,14 +192,14 @@ array(13) {
 
 ## Parser ##
 
-[http://nlp.stanford.edu/software/lex-parser.shtml](http://nlp.stanford.edu/software/lex-parser.shtml)
+[https://nlp.stanford.edu/software/lex-parser.shtml#Download](https://nlp.stanford.edu/software/lex-parser.shtml#Download)
 
 ### Example Usage ###
 
 ```php
 $parser = new \StanfordNLP\Parser(
-  '/path/to/stanford-parser-full-2014-08-27/stanford-parser.jar',
-  '/path/to/stanford-parser-full-2014-08-27/stanford-parser-3.4.1-models.jar'
+  '/path/to/stanford-parser-full-2017-06-09/stanford-parser.jar',
+  '/path/to/stanford-parser-full-2017-06-09/stanford-parser-3.8.0-models.jar'
 );
 $result = $parser->parseSentence("What does the fox say?");
 var_dump($result);
@@ -445,6 +445,5 @@ array(3) {
     }
   }
 }
-
 
 ```

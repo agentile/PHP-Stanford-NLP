@@ -59,6 +59,11 @@ class Base {
     protected $php_os = 'linux';
 
     /**
+     * PHP Operating System
+     */
+    protected $debug = false;
+
+    /**
      * Constructor!
      *   - Set PHP Operating System.
      *
@@ -93,6 +98,28 @@ class Base {
     public function getJavaPath()
     {
         return $this->java_path;
+    }
+
+    /**
+     * Debug setter
+     *
+     * @param boolean
+     *
+     * @return null
+     */
+    public function setDebug($val)
+    {
+        $this->debug = (bool) $val;
+    }
+
+    /**
+     * Debug getter
+     *
+     * @return boolean
+     */
+    public function getDebug()
+    {
+        return $this->debug;
     }
 
     /**

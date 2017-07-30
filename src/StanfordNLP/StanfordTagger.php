@@ -156,6 +156,10 @@ class StanfordTagger extends Base {
             break;
         }
 
+        if ($this->debug) {
+            echo 'DEBUG: Command used: ' . $cmd . PHP_EOL;
+        }
+
         $process = proc_open($cmd, $descriptorspec, $pipes, dirname($this->getJar()));
 
         $output = null;

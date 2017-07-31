@@ -7,7 +7,7 @@
  *
  *
  * @link https://github.com/agentile/PHP-Stanford-NLP
- * @version 0.1.0
+ * @version 0.1.1
  * @author Anthony Gentile <asgentile@gmail.com>
  */
 namespace StanfordNLP;
@@ -79,7 +79,7 @@ class StanfordTagger extends Base {
     }
 
     /**
-     * Tag from an array of tokens for a sentence
+     * Tag from an array of tokens for given sentence(s)
      *
      * @param $tokens array tokens
      *
@@ -88,7 +88,7 @@ class StanfordTagger extends Base {
     public function tag($tokens)
     {
         $results = $this->batchTag(array($tokens));
-        return isset($results[0]) ? $results[0] : array();
+        return !empty($results) ? $results : array();
     }
 
     /**
